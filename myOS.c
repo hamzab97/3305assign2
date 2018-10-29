@@ -1,5 +1,5 @@
 /******************************************************************************
-* 
+*
 * Name: 	Zaid Albirawi
 * Email: 	zalbiraw@uwo.ca
 *
@@ -30,13 +30,13 @@ int main(int argc, char** argv)
 				"simulator.\n\n");
 
 			simulator(argv[2]);
-			
+
 		}
 		else goto FAIL;
 	} else goto FAIL;
 
 	return SUCCESS;
-	
+
 	FAIL:
 	printf(
 		"\nUsage:\n \t./myOS COMMAND\n\nAvailable commands:\n"

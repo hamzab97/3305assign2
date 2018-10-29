@@ -22,6 +22,7 @@
 #define NUMBER_OF_THREADS 4
 
 void simulate(int, linked_stack_t*);
-void dowork(job_t *job, int *totalMemory, int *currentMemory); //perform work for the job
+void checkStack(linked_stack_t*)
+void dowork(job_t*); //perform work for the job
 
 #endif
