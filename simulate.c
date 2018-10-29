@@ -8,6 +8,8 @@ int memory, max_memory;
 FILE *fp;
 linked_stack_t *jobs;
 job_t *job; //initialize object job
+pthread_t arrayOfThreads[NUMBER_OF_THREADS]; //create array of pthreads
+
 
 void simulate(int memory_value, linked_stack_t *stack)
 {
@@ -30,9 +32,20 @@ void simulate(int memory_value, linked_stack_t *stack)
       print_exceed_memory(fp, job->number);
       printf("\n");
     }
-    else
-      dowork(job, &max_memory, &memory);
+    else if ((job->required_memory) > memory){
+      //required job memory is more than the current memory available
+      //push bnack on stack
+      printf("exceeded current memory. memory needed: %d. memory avail: %d\n", job->required_memory, memory);
+      print_insufficient_memory(fp, job->number);
+      push(stack, job);
+      printf("\n");
+    }
+    else{
+      pthread_create(&thread, NULL, dowork, job, &max_memory, &memory);
+      // dowork(job, &max_memory, &memory);
     // printf("required memory for job: %d\n", job->required_memory);
+    }
+    pthread_join(&thread, NULL);//join the thread
   }
   printf("\nEOP\n");//end of program
 }

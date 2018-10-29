@@ -55,4 +55,7 @@ void print_exceed_memory(FILE*, int);
 void print_insufficient_memory(FILE*, int);
 void print_starting(FILE*, int);
 void print_completed(FILE*, int);
+void print_memory_status(FILE*, int);
+void print_allocate_memory(FILE*, int, int);
+void print_deallocate_memory(FILE*, int, int);
 #endif

@@ -161,3 +161,18 @@ void print_completed(FILE *fp, int j)
 {
 	print(fp, "Job #%d completed\n", j);
 }
+
+void print_memory_status(FILE *fp, int mem)
+{
+	print(fp, "Memory at %d\n", mem);
+}
+void print_allocate_memory(FILE *fp, int mem, int req)
+{
+	print(fp, "Allocating %d\n", req);
+	print_memory_status(fp, mem);
+}
+void print_deallocate_memory(FILE *fp, int mem, int req)
+{
+	print(fp, "Deallocating %d\n", req);
+	print_memory_status(fp, mem);
+}

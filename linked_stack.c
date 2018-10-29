@@ -33,9 +33,12 @@ void push(linked_stack_t *s, void *v)
 	node->value = v;
 	node->next = NULL;
 
-	s->size++;
 	s->tail->next = node;
 	s->tail = node;
+
+	if (s->size == 0) s->head = s->tail;
+
+	s->size++;
 }
 
 void* pop(linked_stack_t *s)
