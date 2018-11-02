@@ -1,0 +1,69 @@
+Allocating 110
+Allocating 10
+Memory at 8
+Starting job #2
+Unable to run job #3. Insufficient memory resources
+Memory at 18
+Starting job #1
+Unable to run job #4. Insufficient memory resources
+Job #1 completed
+Deallocating 110
+Memory at 118
+Job #2 completed
+Deallocating 10
+Memory at 128
+Allocating 10
+Memory at 118
+Starting job #5
+Allocating 10
+Memory at 108
+Starting job #6
+Allocating 10
+Memory at 98
+Starting job #8
+Allocating 10
+Memory at 88
+Starting job #9
+Job #8 completed
+Deallocating 10
+Memory at 98
+Job #5 completed
+Deallocating 10
+Memory at 108
+Job #9 completed
+Deallocating 10
+Memory at 118
+Job #6 completed
+Deallocating 10
+Memory at 128
+Allocating 10
+Memory at 118
+Starting job #10
+Allocating 10
+Memory at 108
+Starting job #11
+Unable to run job #12. Memory requirements exceed system capabilities
+Allocating 60
+Memory at 48
+Starting job #13
+Job #11 completed
+Deallocating 10
+Memory at 58
+Job #10 completed
+Deallocating 10
+Memory at 68
+Job #13 completed
+Deallocating 60
+Memory at 128
+Allocating 10
+Memory at 118
+Starting job #3
+Allocating 10
+Memory at 108
+Starting job #4
+Job #4 completed
+Deallocating 10
+Memory at 118
+Job #3 completed
+Deallocating 10
+Memory at 128
