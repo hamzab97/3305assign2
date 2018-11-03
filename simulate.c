@@ -29,11 +29,9 @@ void simulate(int memory_value, linked_stack_t *stack){
   while (stack->size > 0){ //while stack size is greater than 0
     int i = 0;
     while (i < NUMBER_OF_THREADS && stack->size > 0){
-      // printf("stack size %d\n", stack->size);
-      pthread_create(&arrayOfThreads[i], NULL, checkStack, stack);
+      pthread_create(&arrayOfThreads[i], NULL, checkStack, (void*)stack);
       i++;
     }
-    // printf("i is %d\n", i);
     for (int j = 0; j < i; j++){ //create new thread
       pthread_join(arrayOfThreads[j], NULL); //create thread processs at index i
     }
@@ -41,11 +39,18 @@ void simulate(int memory_value, linked_stack_t *stack){
   printf("\n\n");//end of program
 }
 
-void *checkStack(linked_stack_t *stack){
-  if (stack->size > 0){
+/*
+check stack accepts void pointer to stack as parameter
+method is called by each thread and operates on the stack to obtain and check the job
+method used to make sure suffiient memory is present to perform the operation
+then calls a do work method to actually execute the job
+*/
+
+void *checkStack(void* stack){
+  if (((linked_stack_t*)stack)->size > 0){
     //check if stack is not empty
     //create job struct from element popped
-    job_t *job = pop(stack); //initialize object job
+    job_t *job = pop(((linked_stack_t*)stack));; //initialize object job
     if ((job->required_memory) > max_memory){
       //call print exceed memory with file pointer and total memory available as paramters
       print_exceed_memory(fp, job->number);
@@ -62,7 +67,12 @@ void *checkStack(linked_stack_t *stack){
   }
 }
 
-void dowork(job_t *job){ //void pointer method
+/*
+method called for jobs that have enough system requirements to get executed
+executes the job and prints appropriate statements 
+*/
+
+void dowork(job_t *job){ //void  method
   memory = memory - job->required_memory; //allocate memory
   print_allocate_memory(fp, memory, job->required_memory); //print that memory is allocated
   print_starting(fp, job->number); //print starting job %number

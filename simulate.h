@@ -22,7 +22,7 @@
 #define NUMBER_OF_THREADS 4
 
 void simulate(int, linked_stack_t*);
-void *checkStack(linked_stack_t*);
+void *checkStack(void*);
 void dowork(job_t*); //perform work for the job
 
 #endif

@@ -1,10 +1,10 @@
 Allocating 110
+Memory at 18
+Starting job #1
+Unable to run job #3. Insufficient memory resources
 Allocating 10
 Memory at 8
 Starting job #2
-Unable to run job #3. Insufficient memory resources
-Memory at 18
-Starting job #1
 Unable to run job #4. Insufficient memory resources
 Job #1 completed
 Deallocating 110
